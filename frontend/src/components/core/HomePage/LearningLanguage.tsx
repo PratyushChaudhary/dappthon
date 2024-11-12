@@ -17,13 +17,13 @@ const LearningLanguageSection: React.FC = () => {
         </div>
 
         {/* Image Section */}
-        <div className="flex flex-row items-start justify-center mt-10 w-full max-w-[1200px] gap-5 px-5">
+        <div className="flex flex-row items-start justify-center mt-10  max-w-[100vw] min-w-[79%] gap-5 px-5 rounded-full">
   
 
   <img
     src={compare_with_others}
     alt="compareWithOthers"
-    className="object-contain h-[300px] w-[400px]"
+    className="object-contain h-[300px] "
   />
 
   
@@ -35,7 +35,7 @@ const LearningLanguageSection: React.FC = () => {
         </div>
 
         <div className="mt-10">
-          <Button active={true} linkTo="/signup">
+          <Button active={true} linkTo="/about">
             <div>Learn More</div>
           </Button>
         </div>

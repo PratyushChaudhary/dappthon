@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 import About from './pages/About';
+import ContactUs from './pages/Contact';
 function App() {
   return (
     
@@ -23,6 +24,12 @@ function App() {
                     path="/file-upload"
                     element={
                             <FileUpload />
+                    } 
+                />
+                <Route 
+                    path="/contact"
+                    element={
+                            <ContactUs />
                     } 
                 />
                 <Route 

@@ -50,10 +50,17 @@ const WalletConnect = () => {
                         >
                             {account && formatAddress(account.toString())}
                         </button>
-                        {/* Dynamic Tooltip */}
-                        <span className="absolute left-1/2 transform -translate-x-1/2 mb-1 hidden text-xs bg-black text-white py-1 px-2 rounded opacity-0 group-hover:opacity-100 group-hover:block transition-opacity duration-300">
-                            {location.pathname === "/file-upload" ? "Go to homepage" : "Go to file uploader"}
-                        </span>
+                        <span
+  className="absolute left-1/2 transform -translate-x-1/2 mb-1 hidden text-xs py-1 px-2 w-contain rounded-md opacity-0 group-hover:opacity-100 group-hover:block transition-opacity duration-300"
+  style={{
+    backgroundColor:
+      location.pathname === "/file-upload" ? "#2D3748" : "#1A202C", // Dark background color for the tooltip
+    color: location.pathname === "/file-upload" ? "#F56565" : "#4FD1C5", // Color based on the condition
+  }}
+>
+  {location.pathname === "/file-upload" ? "Go To Home" : "Upload"}
+</span>
+
                     </div>
                     <button 
                         onClick={handleDisconnect}

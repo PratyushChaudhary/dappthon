@@ -14,7 +14,7 @@ const Home: React.FC = () => {
       
       {/* section 1 */}
       <div className="relative mx-auto flex flex-col w-11/12 items-center text-white justify-between">
-        <Link to="/signup">
+        <Link to="/contact">
           <div className="group mt-16 p-1 mx-auto rounded-full bg-richblack-900 font-bold text-richblack-200 transition-all duration-200 hover:scale-95 w-fit">
             <div className="flex flex-row items-center gap-2 rounded-full px-10 py-[5px] group-hover:bg-richblack-900">
               <p>Become a Contributor</p>
@@ -33,11 +33,11 @@ const Home: React.FC = () => {
         </p>
 
         <div className="flex flex-row gap-7 mt-8">
-          <Button active={true} linkTo="/signup">
+          <Button active={true} linkTo="/download">
             Get Started
           </Button>
 
-          <Button active={false} linkTo="/login">
+          <Button active={false} linkTo="/about">
             Learn More
           </Button>
         </div>
@@ -63,7 +63,7 @@ const Home: React.FC = () => {
               <p className="text-[1rem]">
                 Ensure confidentiality with client-side encryption, decentralized storage, and secure access via blockchain. Perfect for users who value data security and transparency.
               </p>
-              <Button active={true} linkTo="/signup">
+              <Button active={true} linkTo="/about">
                 Learn More
               </Button>
             </div>

@@ -5,7 +5,8 @@ import FileRetrieval from './components/FileRetrieval';
 
 function App() {
     return (
-        <WalletProvider>
+        <div className='bg-richblack-900 min-w-full min-h-full'>
+        <WalletProvider >
             <div className="App">
                 <header>
                     <WalletConnect />
@@ -20,6 +21,8 @@ function App() {
                 </main>
             </div>
         </WalletProvider>
+        </div>
+
     );
 }
 

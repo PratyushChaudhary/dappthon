@@ -1,4 +1,3 @@
-// src/components/wallet/WalletConnect.tsx
 import { useWallet } from '../../contexts/WalletContext';
 
 const WalletConnect = () => {

@@ -3,16 +3,14 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 import HighlightText from '../components/core/HomePage/HighlightText';
 import Button from '../components/core/HomePage/Button';
-import Banner from '../assets/Images/banner.mp4';
+import Banner from '../assets/banner.mp4';
 import TimelineSection from '../components/core/HomePage/TimelineSection';
-import LearningLanguageSection from '../components/core/HomePage/LearningLanguageSection';
-import Footer from '../components/common/footer1';
+import LearningLanguageSection from '../components/core/HomePage/LearningLanguage';
+// import Footer from '../components/common/footer1';
 
 const Home: React.FC = () => {
   return (
-    <div className="w-full h-full">
-      {/* Navbar */}
-      {/* <Navbar/> */}
+    <div className="max-w-full h-full">
       
       {/* section 1 */}
       <div className="relative mx-auto flex flex-col w-11/12 items-center text-white justify-between">

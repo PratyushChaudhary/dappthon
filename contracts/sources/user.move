@@ -7,7 +7,7 @@ module file_sharing::user {
 
     friend file_sharing::file_upload;
 
-  x  /// Error codes
+    /// Error codes
     const E_USER_ALREADY_EXISTS: u64 = 1;
     const E_USER_NOT_REGISTERED: u64 = 2;
     const E_NOT_AUTHORIZED: u64 = 3;

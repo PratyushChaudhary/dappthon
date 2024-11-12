@@ -1,8 +1,13 @@
 import React from 'react';
 
-const HighlightText = ({ text, color }) => {
+interface HighlightTextProps {
+  text: string;
+  color: string;
+}
+
+const HighlightText: React.FC<HighlightTextProps> = ({ text, color }) => {
   return (
-    <span className="font-bold " style={{ color }}>
+    <span className="font-bold" style={{ color }}>
       {text}
     </span>
   );

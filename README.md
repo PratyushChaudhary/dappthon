@@ -65,10 +65,10 @@ The system follows these primary workflows:
 - 📱 Responsive web interface
 
 ## Getting Started
-Node.js (v14 or later)
-npm
-Aptos CLI
-Petra Wallet Browser Extension
+- Node.js (v14 or later)
+- npm
+- Aptos CLI
+- Petra Wallet Browser Extension
 
 ### Installation
 
@@ -83,18 +83,27 @@ cd your-repo-name
 # Install Move dependencies
 cd backend
 aptos init
+aptos init —network testnet
 
 # Install frontend dependencies
 cd ../frontend
 npm install
 ```
 
-3. Set up variables
+3. Set up environment variables
 ```
 VITE_PINATA_API_KEY=your_pinata_api_key
 VITE_PINATA_SECRET_KEY=your_pinata_secret_key
 VITE_CONTRACT_ADDRESS=your_contract_address
 ```
+
+### Configuration
+
+- Update addresses under Move.toml with your deployed contract address
+- Update the contract address in src/utils/constants.ts with your deployed contract address
+- Configure Pinata API keys in your environment variables
+- Make sure your Petra wallet is connected to the correct network (testnet/mainnet)
+
 
 4. Deploy smart contracts
 ```
@@ -108,11 +117,25 @@ cd frontend
 npm run dev
 ```
 
-### Configuration
+### Smart Contract Structure
+```
+backend/
+├── sources/
+│   ├── user.move         (User management)
+│   ├── file_upload.move  (File metadata storage)
+│   └── file_access.move  (Access control)
+```
 
-- Update the contract address in src/utils/constants.ts with your deployed contract address
-- Configure Pinata API keys in your environment variables
-- Make sure your Petra wallet is connected to the correct network (testnet/mainnet)
+### Frontend Structure
+```
+frontend/
+├── src/
+│   ├── components/
+│   ├── contexts/
+│   ├── services/
+│   ├── hooks/
+│   └── utils/
+```
 
 ### Usage
 
@@ -142,25 +165,84 @@ npm run dev
 - Provide decryption password
 - Click "Download & Decrypt"
 
-### Smart Contract Structure
-```
-backend/
-├── sources/
-│   ├── user.move         (User management)
-│   ├── file_upload.move  (File metadata storage)
-│   └── file_access.move  (Access control)
-```
+## Extended Use Cases
 
-### Frontend Structure
-```
-frontend/
-├── src/
-│   ├── components/
-│   ├── contexts/
-│   ├── services/
-│   ├── hooks/
-│   └── utils/
-```
+Our decentralized file sharing system has numerous potential applications across various sectors:
+
+### 1. Government Certificate Authentication
+- Prevents certificate fraud through public verification
+- Stores certificates with location and recipient data
+- Enables mass verification through public ledger
+- Quick fraud detection and reporting
+- Creates transparent certificate ecosystem
+
+### 2. Secure Cybercafe Operations
+- Time-bound file sharing capabilities
+- Automatic access revocation
+- Mandatory directory cleanup protocols
+- Prevents unauthorized data retention
+- Enhanced user privacy protection
+
+### 3. Healthcare Record Management
+- Secure patient record sharing
+- Controlled access for healthcare providers
+- Complete audit trail of access
+- Patient-controlled data sharing
+- Compliance with healthcare regulations
+- Emergency access protocols
+
+### 4. Educational Institution Management
+- Secure transcript and certificate distribution
+- Real-time verification system
+- Research paper sharing platform
+- Student record management
+- Cross-institution collaboration
+- Alumni document access
+
+### 5. Legal Document Handling
+- Secure contract sharing
+- Version control with timestamps
+- Multi-party access control
+- Compliance audit trails
+- Court document management
+- Client-attorney privileged sharing
+
+### 6. Corporate Data Management
+- Secure document sharing
+- Employee record management
+- Project documentation
+- Board meeting materials
+- Shareholder documents
+- Inter-department file sharing
+
+### 7. Research Collaboration
+- Secure data sharing
+- Version control
+- Access management
+- Citation tracking
+- Research output protection
+- Cross-institution collaboration
+
+### 8. Media and Entertainment
+- Digital rights management
+- Content distribution
+- Access control for premium content
+- Proof of ownership
+- Revenue sharing management
+
+### 9. Real Estate
+- Property documentation
+- Title deed management
+- Rental agreements
+- Property inspection reports
+- Buyer-seller document exchange
+
+### 10. Supply Chain Management
+- Certificate of origin
+- Quality inspection documents
+- Shipping documentation
+- Customs clearance
+- Product authenticity verification
 
 ### Security Considerations
 
@@ -168,3 +250,7 @@ frontend/
 - Encryption keys never leave the user's browser
 - Smart contract handles access control
 - Wallet signatures required for all transactions
+
+## Acknowledgments
+
+I would like to express my sincere gratitude to my teammate Aman Pandey for their valuable contributions to this project.

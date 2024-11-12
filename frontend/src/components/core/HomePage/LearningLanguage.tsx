@@ -1,8 +1,6 @@
 import React from 'react';
 import HighlightText from './HighlightText';
-import know_your_progress from "../../../assets/download.jpg";
-import compare_with_others from "../../../assets/i3.jpg";
-import plan_your_lessons from "../../../assets/images.jpg";
+import compare_with_others from "../../../assets/ban.webp";
 import Button from './Button';
 
 const LearningLanguageSection: React.FC = () => {
@@ -10,34 +8,30 @@ const LearningLanguageSection: React.FC = () => {
     <div>
       <div className="flex flex-col gap-5 mt-20 w-fit items-center">
         <div className="text-4xl font-semibold text-center">
-          Your Swiss-Knife for
-          <HighlightText text={" learning any language "} color="#00B2A9" />
+          Discover the Power of
+          <HighlightText text={" Aptos Blockchain with Move "} color="#00B2A9" />
         </div>
 
         <div className="text-center text-richblack-600 mx-auto text-base font-medium w-[70%]">
-          Using spin making learning multiple languages easy, with 20+ languages realistic voice-over,
-          progress-tracking, custom-scheduling, and more ...
+          Leverage the security and efficiency of the Aptos blockchain with Move language, enabling fast and reliable smart contracts, transparent progress tracking, and decentralized data ownership.
         </div>
 
         {/* Image Section */}
-        <div className="flex flex-row items-center justify-between mt-10 w-full max-w-[1200px] px-5">
-          <img
-            src={know_your_progress}
-            alt="KnowYourProgress"
-            className="object-contain h-[50%] w-[300px] md:w-[350px] lg:w-[400px]"
-          />
+        <div className="flex flex-row items-start justify-center mt-10 w-full max-w-[1200px] gap-5 px-5">
+  
 
-          <img
-            src={compare_with_others}
-            alt="compareWithOthers"
-            className="object-contain h-[50%] w-[300px] md:w-[350px] lg:w-[400px]"
-          />
+  <img
+    src={compare_with_others}
+    alt="compareWithOthers"
+    className="object-contain h-[300px] w-[400px]"
+  />
 
-          <img
-            src={plan_your_lessons}
-            alt="planYourLessons"
-            className="object-contain h-[50%] w-[300px] md:w-[350px] lg:w-[400px]"
-          />
+  
+</div>
+
+
+        <div className="text-center text-richblack-600 mx-auto text-base font-medium w-[70%] mt-5">
+          By integrating Move on Aptos, we ensure secure interactions and transparent record-keeping. Every achievement is stored immutably, empowering users to track and prove their progress without intermediaries.
         </div>
 
         <div className="mt-10">

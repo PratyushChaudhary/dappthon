@@ -1,29 +1,38 @@
 import { WalletProvider } from './contexts/WalletContext';
 import WalletConnect from './components/wallet/WalletConnect';
 import FileUpload from './components/upload/FileUpload';
+import FileRetrieval from './components/FileRetrieval';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Navbar from './components/common/Navbar';
-import ProtectedRoute from './components/core/Auth/PrivateRoute';
+import Footer from './components/common/Footer';
+import About from './pages/About';
 function App() {
   return (
     
-      <WalletProvider>
-        <div>
+      <WalletProvider >
+        <div className='bg-richblack-900 w-full h-full'>
           <Navbar />
           <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/wallet-connect" element={<WalletConnect />} />
+                <Route path="/about" element={<About />} />
+
                 {/* Protect the file-upload route */}
                 <Route 
-                    path="/file-upload" 
+                    path="/file-upload"
                     element={
-                        
                             <FileUpload />
-                    
+                    } 
+                />
+                <Route 
+                    path="/download" 
+                    element={
+                            <FileRetrieval />
                     } 
                 />
             </Routes>
+            <Footer/>
         </div>
       </WalletProvider>
     

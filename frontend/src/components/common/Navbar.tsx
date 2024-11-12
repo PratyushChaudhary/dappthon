@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../../assets/logoDark.png";
-import { CiShoppingCart } from "react-icons/ci";
 import { IoIosArrowDropdown } from "react-icons/io";
 import { WalletProvider } from '../../contexts/WalletContext'; // Adjust path as necessary
 import WalletConnect from '../wallet/WalletConnect'; // Adjust path as necessary
@@ -15,9 +14,9 @@ const testSubLinks = [
 // Main navigation links
 const NavbarLinks = [
   { title: "Home", path: "/" },
-  { title: "Catalog" },
   { title: "About Us", path: "/about" },
   { title: "Contact Us", path: "/contact" },
+  { title: "Retrieve", path: "/download" },
 ];
 
 const Navbar = () => (
@@ -26,9 +25,13 @@ const Navbar = () => (
       <div className="flex flex-row w-11/12 max-w-maxContent items-center justify-between">
         
         {/* Logo */}
-        <Link to="/">
-          <img src={logo} width={160} height={42} loading="lazy" alt="Logo" />
-        </Link>
+        <div className='w-[12rem] h-[42px] rounded-md overflow-hidden'>
+  <Link to="/">
+    <img src={logo} loading="lazy" alt="Logo" className='object-cover w-full h-full' />
+  </Link>
+</div>
+
+        
 
         {/* Navigation Links */}
         <nav>
@@ -59,10 +62,7 @@ const Navbar = () => (
         </nav>
 
         {/* Wallet Connect / Cart Icon */}
-        <div className="flex mx-4 items-center gap-4">
-          <Link to="/dashboard/cart" className="relative">
-            <CiShoppingCart />
-          </Link>
+        <div className="flex mx-2 items-center gap-4">
           <div className="App">
             <header>
               <WalletConnect />

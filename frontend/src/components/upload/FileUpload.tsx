@@ -4,37 +4,46 @@ import { uploadToPinata } from '../../services/pinata';
 import { encryptFile } from '../../services/encryption';
 import { FiUploadCloud } from 'react-icons/fi';
 import { useDropzone } from 'react-dropzone';
+import { toast, Toaster } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import { FiEye, FiEyeOff } from 'react-icons/fi';
 
 const FileUpload = () => {
     const { connected } = useWallet();
     const [file, setFile] = useState<File | null>(null);
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const [uploading, setUploading] = useState(false);
     const [progress, setProgress] = useState(0);
     const [ipfsHash, setIpfsHash] = useState('');
+    const [uploadSuccess, setUploadSuccess] = useState(false);
+    const navigate = useNavigate();
 
-    // Setup dropzone hooks for file drop
     const { getRootProps, getInputProps } = useDropzone({
         onDrop: (acceptedFiles) => {
             setFile(acceptedFiles[0]);
         },
-        multiple: false,  // Allow only one file
+        multiple: false,
     });
 
     const handleUpload = async () => {
         if (!connected) {
-            alert('Please connect your wallet first');
+            toast('Please connect your wallet first', { icon: '⚠️', position: 'top-center' });
             return;
         }
 
         if (!file || !password) {
-            alert('Please select a file and enter an encryption password');
+            toast('Please select a file and enter an encryption password', { icon: '⚠️', position: 'top-center' });
             return;
         }
 
         try {
             setUploading(true);
             setProgress(0);
+            setUploadSuccess(false);
+
+            // Show loading toast at the top
+            const loadingToastId = toast.loading('Uploading...', { position: 'top-center' });
 
             // Encrypt file
             const encrypted = await encryptFile(file, password);
@@ -49,18 +58,31 @@ const FileUpload = () => {
             });
 
             setIpfsHash(hash);
+            setUploadSuccess(true);
+            toast.success('Upload Successful!', { id: loadingToastId, duration: 3000 });
             console.log('Encrypted file uploaded to IPFS with hash:', hash);
         } catch (error) {
             console.error('Upload failed:', error);
-            alert('Failed to upload file');
+            toast.error('Failed to upload file', { position: 'top-center' });
         } finally {
             setUploading(false);
         }
     };
 
+    const handleDownloadRedirect = () => {
+        // Navigate to the download page or trigger download functionality
+        navigate(`/download?hash=${ipfsHash}`);
+    };
+
     return (
-        <div className="flex flex-col space-y-4">
-            <h2 className="text-lg font-semibold text-richblack-5">Upload Encrypted File</h2>
+        <div className='w-full bg-richblack-900 h-[100vh]'>
+
+        <div className="flex flex-col space-y-4 max-w-[60%] mx-auto ">
+            <Toaster />
+
+            <h2 className="text-lg font-semibold text-richblack-5">
+                {uploadSuccess ? 'Go to download the file' : 'Upload Encrypted File'}
+            </h2>
 
             <div
                 {...getRootProps()}
@@ -89,6 +111,7 @@ const FileUpload = () => {
                                 setFile(null);
                                 setProgress(0);
                                 setIpfsHash('');
+                                setUploadSuccess(false);
                             }}
                             className="mt-3 text-richblack-400 underline"
                         >
@@ -98,19 +121,27 @@ const FileUpload = () => {
                 )}
             </div>
 
-            <input
-                type="password"
-                placeholder="Enter encryption password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="mt-4 p-2 rounded-md border-2 border-richblack-500 text-richblack-900 placeholder:text-richblack-400"
-            />
+            <div className="relative mt-4">
+                <input
+                    type={showPassword ? 'text' : 'password'}
+                    placeholder="Enter encryption password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="w-full p-2 rounded-md border-2 border-richblack-500 text-richblack-900 placeholder:text-richblack-400"
+                />
+                <span
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute inset-y-0 right-3 flex items-center cursor-pointer text-richblack-500"
+                >
+                    {showPassword ? <FiEyeOff /> : <FiEye />}
+                </span>
+            </div>
 
             {uploading && (
                 <div className="progress-container mt-4">
-                    <div className="progress-bar">
+                    <div className="progress-bar h-2 bg-richblack-700 rounded">
                         <div
-                            className="progress bg-cyan-50"
+                            className="progress bg-cyan-50 h-full rounded"
                             style={{ width: `${progress}%` }}
                         />
                     </div>
@@ -123,19 +154,23 @@ const FileUpload = () => {
                     <p className="text-sm font-semibold text-green-500">File uploaded successfully!</p>
                     <p className="text-xs text-richblack-300">IPFS Hash: {ipfsHash}</p>
                     <p className="mt-2 text-xs text-pink-200">
-                        Save your password! You'll need it to decrypt the file.
+                        Save your password and IPFS Hash! You'll need it to decrypt the file.
                     </p>
                 </div>
             )}
 
             <button 
-                onClick={handleUpload}
+                onClick={uploadSuccess ? handleDownloadRedirect : handleUpload}
                 disabled={!file || !password || uploading || !connected}
-                className="mt-4 bg-cyan-50 text-richblack-900 py-2 px-6 rounded-md disabled:bg-richblack-300"
+                className={`mt-4 py-2 px-6 rounded-md cursor-pointer w-fit mx-auto ${
+                    uploadSuccess ? 'bg-green-500 text-white' : 'bg-cyan-50 text-richblack-900 disabled:bg-richblack-300'
+                }`}
             >
-                {uploading ? 'Uploading...' : 'Upload & Encrypt File'}
+                {uploadSuccess ? 'Go to Download' : 'Upload & Encrypt File'}
             </button>
         </div>
+        </div>
+
     );
 };
 

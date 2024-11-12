@@ -1,6 +1,7 @@
 // src/components/FileRetrieval.tsx
 import { useState } from 'react';
 import { decryptFile } from '../services/encryption';
+import { toast, Toaster } from 'react-hot-toast';  // Importing toast notifications
 
 const FileRetrieval = () => {
     const [ipfsHash, setIpfsHash] = useState('');
@@ -9,20 +10,26 @@ const FileRetrieval = () => {
 
     const handleDownload = async () => {
         if (!ipfsHash || !password) {
-            alert('Please enter IPFS hash and decryption password');
+            toast.error('Please enter both IPFS hash and decryption password', { position: 'top-center' });
             return;
         }
 
         try {
             setDownloading(true);
+
+            // CORS proxy setup (ensure it's working)
+            const ipfsUrl = `https://gateway.pinata.cloud/${ipfsHash}`;
+            const url = `${ipfsUrl}`;
+            console.log(url);
             
             // Fetch encrypted file from IPFS
-            const proxyUrl = "https://cors-anywhere.herokuapp.com/"; // CORS proxy
-            const ipfsUrl = `https://gateway.pinata.cloud/ipfs/${ipfsHash}`;
-            const url = `${proxyUrl}${ipfsUrl}`;
             const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error('Failed to fetch encrypted file');
+            }
             const encryptedData = await response.text();
             console.log(url);
+
             // Decrypt the file
             const decryptedData = decryptFile(encryptedData, password);
             
@@ -43,19 +50,22 @@ const FileRetrieval = () => {
             document.body.removeChild(link);
             
             window.URL.revokeObjectURL(downloadUrl);
+            toast.success('Download and decryption successful!', { position: 'top-center' });
         } catch (error) {
             console.error('Download/Decryption failed:', error);
-            alert('Failed to download or decrypt file. Please check your password.');
+            toast.error('Failed to download or decrypt file. Please check your password or IPFS hash.', { position: 'top-center' });
         } finally {
             setDownloading(false);
         }
     };
 
     return (
-        <div className="flex justify-center items-center min-h-screen">
-            <div className="w-4/5 max-w-3xl p-6 bg-white rounded-lg shadow-lg space-y-6">
+        <div className="flex justify-center items-center min-h-screen bg-richblack-900  ">
+            <div className="w-4/5 max-w-3xl -mt-5 p-6 bg-richblack-700  rounded-lg shadow-lg space-y-6">
+                <Toaster />  {/* Add Toast container here */}
                 <h2 className="text-lg font-semibold text-richblack-5">Download & Decrypt File</h2>
-                
+                <div className='flex flex-col space-y-4 max-w-[90%] mx-auto'>
+
                 <input
                     type="text"
                     placeholder="Enter IPFS Hash"
@@ -75,10 +85,12 @@ const FileRetrieval = () => {
                 <button
                     onClick={handleDownload}
                     disabled={!ipfsHash || !password || downloading}
-                    className="mt-4 bg-cyan-50 text-richblack-900 py-2 px-6 rounded-md disabled:bg-richblack-300"
+                    className={`mt-4 py-2 px-6 rounded-md cursor-pointer w-[40%] mx-auto ${downloading ? 'bg-gray-400' : 'bg-cyan-50 text-richblack-900'} ${!ipfsHash || !password ? 'disabled:bg-richblack-300' : ''}`}
                 >
                     {downloading ? 'Downloading & Decrypting...' : 'Download & Decrypt File'}
                 </button>
+                </div>
+
             </div>
         </div>
     );

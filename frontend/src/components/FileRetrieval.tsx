@@ -1,7 +1,6 @@
-// src/components/FileRetrieval.tsx
 import { useState } from 'react';
 import { decryptFile } from '../services/encryption';
-import { toast, Toaster } from 'react-hot-toast';  // Importing toast notifications
+import { toast, Toaster } from 'react-hot-toast';
 
 const FileRetrieval = () => {
     const [ipfsHash, setIpfsHash] = useState('');
@@ -17,10 +16,9 @@ const FileRetrieval = () => {
         try {
             setDownloading(true);
 
-            // CORS proxy setup (ensure it's working)
-            const ipfsUrl = `https://gateway.pinata.cloud/${ipfsHash}`;
-            const url = `${ipfsUrl}`;
-            console.log(url);
+            // Construct the IPFS URL properly
+            const url = `https://gateway.pinata.cloud/ipfs/${ipfsHash}`;
+            console.log('Fetching from:', url);
             
             // Fetch encrypted file from IPFS
             const response = await fetch(url);
@@ -28,7 +26,6 @@ const FileRetrieval = () => {
                 throw new Error('Failed to fetch encrypted file');
             }
             const encryptedData = await response.text();
-            console.log(url);
 
             // Decrypt the file
             const decryptedData = decryptFile(encryptedData, password);
@@ -39,11 +36,10 @@ const FileRetrieval = () => {
             
             // Create blob and download
             const blob = new Blob([new Uint8Array([...binaryData].map(char => char.charCodeAt(0)))]);
-
             const downloadUrl = window.URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = downloadUrl;
-            link.download = `decrypted-file`; // You can store original filename in metadata
+            link.download = 'decrypted-file'; // String should be in quotes
             
             document.body.appendChild(link);
             link.click();
@@ -60,37 +56,37 @@ const FileRetrieval = () => {
     };
 
     return (
-        <div className="flex justify-center items-center min-h-screen bg-richblack-900  ">
-            <div className="w-4/5 max-w-3xl -mt-5 p-6 bg-richblack-700  rounded-lg shadow-lg space-y-6">
-                <Toaster />  {/* Add Toast container here */}
+        <div className="flex justify-center items-center min-h-screen bg-richblack-800 -mt-6">
+            <div className="w-4/5 max-w-3xl p-6 bg-richblack-700 rounded-lg shadow-lg space-y-6">
+                <Toaster />
                 <h2 className="text-lg font-semibold text-richblack-5">Download & Decrypt File</h2>
-                <div className='flex flex-col space-y-4 max-w-[90%] mx-auto'>
+                <div className="flex flex-col space-y-4 max-w-[90%] mx-auto">
+                    <input
+                        type="text"
+                        placeholder="Enter IPFS Hash"
+                        value={ipfsHash}
+                        onChange={(e) => setIpfsHash(e.target.value)}
+                        className="p-2 rounded-md border-2 border-richblack-500 text-richblack-900 placeholder:text-richblack-400"
+                    />
+                    
+                    <input
+                        type="password"
+                        placeholder="Enter decryption password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="p-2 rounded-md border-2 border-richblack-500 text-richblack-900 placeholder:text-richblack-400"
+                    />
 
-                <input
-                    type="text"
-                    placeholder="Enter IPFS Hash"
-                    value={ipfsHash}
-                    onChange={(e) => setIpfsHash(e.target.value)}
-                    className="p-2 rounded-md border-2 border-richblack-500 text-richblack-900 placeholder:text-richblack-400"
-                />
-                
-                <input
-                    type="password"
-                    placeholder="Enter decryption password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="p-2 rounded-md border-2 border-richblack-500 text-richblack-900 placeholder:text-richblack-400"
-                />
-
-                <button
-                    onClick={handleDownload}
-                    disabled={!ipfsHash || !password || downloading}
-                    className={`mt-4 py-2 px-6 rounded-md cursor-pointer w-[40%] mx-auto ${downloading ? 'bg-gray-400' : 'bg-cyan-50 text-richblack-900'} ${!ipfsHash || !password ? 'disabled:bg-richblack-300' : ''}`}
-                >
-                    {downloading ? 'Downloading & Decrypting...' : 'Download & Decrypt File'}
-                </button>
+                    <button
+                        onClick={handleDownload}
+                        disabled={!ipfsHash || !password || downloading}
+                        className={`mt-4 py-2 px-6 rounded-md cursor-pointer w-[40%] mx-auto 
+                            ${downloading ? 'bg-gray-400' : 'bg-cyan-50 text-richblack-900'} 
+                            ${(!ipfsHash || !password) ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    >
+                        {downloading ? 'Downloading & Decrypting...' : 'Download & Decrypt File'}
+                    </button>
                 </div>
-
             </div>
         </div>
     );

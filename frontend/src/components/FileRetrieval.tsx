@@ -12,7 +12,7 @@ const FileRetrieval = () => {
             setDownloading(true);
             
             // Construct IPFS gateway URL
-            const url = `https://ipfs.io/ipfs/${ipfsHash}`;
+            const url = `https://gateway.pinata.cloud/ipfs/${ipfsHash}`;
             
             // Fetch the file
             const response = await fetch(url);

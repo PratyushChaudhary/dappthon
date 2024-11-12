@@ -1,10 +1,6 @@
-// src/components/upload/FileUpload.tsx
 import { useState } from 'react';
 import { useWallet } from '../../contexts/WalletContext';
-import { create } from 'ipfs-http-client';
-
-// Configure IPFS client
-const ipfs = create({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
+import { uploadToPinata } from '../../services/pinata';
 
 const FileUpload = () => {
     const { connected } = useWallet();
@@ -20,48 +16,39 @@ const FileUpload = () => {
         }
     };
 
-    const uploadToIPFS = async () => {
-        if (!file) return;
-
-        try {
-            setUploading(true);
-            setProgress(0);
-
-            // Upload to IPFS
-            const added = await ipfs.add(file, {
-                progress: (prog) => {
-                    const percentage = (prog / file.size) * 100;
-                    setProgress(Math.round(percentage));
-                }
-            });
-
-            setIpfsHash(added.path);
-            return added.path;
-        } catch (error) {
-            console.error('Error uploading to IPFS:', error);
-            throw error;
-        } finally {
-            setUploading(false);
-        }
-    };
-
     const handleUpload = async () => {
         if (!connected) {
             alert('Please connect your wallet first');
             return;
         }
 
+        if (!file) {
+            alert('Please select a file first');
+            return;
+        }
+
         try {
-            const hash = await uploadToIPFS();
-            // Here we'll later add the contract interaction to store the file metadata
+            setUploading(true);
+            setProgress(0);
+
+            const hash = await uploadToPinata(file, (progress) => {
+                setProgress(progress);
+            });
+
+            setIpfsHash(hash);
             console.log('File uploaded to IPFS with hash:', hash);
         } catch (error) {
             console.error('Upload failed:', error);
+            alert('Failed to upload file');
+        } finally {
+            setUploading(false);
         }
     };
 
     return (
         <div className="file-upload">
+            <h2>Upload File</h2>
+            
             <input 
                 type="file"
                 onChange={handleFileSelect}
@@ -76,11 +63,13 @@ const FileUpload = () => {
             )}
 
             {uploading && (
-                <div className="progress-bar">
-                    <div 
-                        className="progress"
-                        style={{ width: `${progress}%` }}
-                    />
+                <div className="progress-container">
+                    <div className="progress-bar">
+                        <div 
+                            className="progress"
+                            style={{ width: `${progress}%` }}
+                        />
+                    </div>
                     <span>{progress}%</span>
                 </div>
             )}
@@ -89,12 +78,20 @@ const FileUpload = () => {
                 <div className="upload-success">
                     <p>File uploaded successfully!</p>
                     <p>IPFS Hash: {ipfsHash}</p>
+                    <a 
+                        href={`https://gateway.pinata.cloud/ipfs/${ipfsHash}`} 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View File
+                    </a>
                 </div>
             )}
 
             <button 
                 onClick={handleUpload}
                 disabled={!file || uploading || !connected}
+                className="upload-button"
             >
                 {uploading ? 'Uploading...' : 'Upload File'}
             </button>

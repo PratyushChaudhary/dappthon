@@ -9,6 +9,9 @@ function App() {
                 <header className="app-header">
                     <WalletConnect />
                 </header>
+                <div className=' text-teal-600'>
+                    amanpandey
+                </div>
                 {/* Other components will go here */}
             </div>
         </WalletProvider>

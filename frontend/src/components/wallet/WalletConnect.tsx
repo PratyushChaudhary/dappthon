@@ -14,7 +14,7 @@ const WalletConnect = () => {
                 <button 
                     onClick={connect}
                     disabled={connecting}
-                    className="connect-button"
+                    className="connect-button "
                 >
                     {connecting ? 'Connecting...' : 'Connect Wallet'}
                 </button>

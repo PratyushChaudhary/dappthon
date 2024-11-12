@@ -152,3 +152,17 @@ input[type="text"] {
   margin-top: 1rem;
   font-size: 1rem;
 }
+
+.password-input {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.warning {
+  color: #f44336;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}

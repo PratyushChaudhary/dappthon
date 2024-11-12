@@ -1,10 +1,13 @@
+// src/components/upload/FileUpload.tsx
 import { useState } from 'react';
 import { useWallet } from '../../contexts/WalletContext';
 import { uploadToPinata } from '../../services/pinata';
+import { encryptFile } from '../../services/encryption';
 
 const FileUpload = () => {
     const { connected } = useWallet();
     const [file, setFile] = useState<File | null>(null);
+    const [password, setPassword] = useState('');
     const [uploading, setUploading] = useState(false);
     const [progress, setProgress] = useState(0);
     const [ipfsHash, setIpfsHash] = useState('');
@@ -22,8 +25,8 @@ const FileUpload = () => {
             return;
         }
 
-        if (!file) {
-            alert('Please select a file first');
+        if (!file || !password) {
+            alert('Please select a file and enter an encryption password');
             return;
         }
 
@@ -31,12 +34,20 @@ const FileUpload = () => {
             setUploading(true);
             setProgress(0);
 
-            const hash = await uploadToPinata(file, (progress) => {
+            // Encrypt file
+            const encrypted = await encryptFile(file, password);
+
+            // Create a new file with encrypted data
+            const encryptedBlob = new Blob([encrypted.encryptedData], { type: 'text/plain' });
+            const encryptedFile = new File([encryptedBlob], file.name + '.encrypted');
+
+            // Upload encrypted file to Pinata
+            const hash = await uploadToPinata(encryptedFile, (progress) => {
                 setProgress(progress);
             });
 
             setIpfsHash(hash);
-            console.log('File uploaded to IPFS with hash:', hash);
+            console.log('Encrypted file uploaded to IPFS with hash:', hash);
         } catch (error) {
             console.error('Upload failed:', error);
             alert('Failed to upload file');
@@ -47,12 +58,20 @@ const FileUpload = () => {
 
     return (
         <div className="file-upload">
-            <h2>Upload File</h2>
+            <h2>Upload Encrypted File</h2>
             
             <input 
                 type="file"
                 onChange={handleFileSelect}
                 disabled={uploading}
+            />
+            
+            <input
+                type="password"
+                placeholder="Enter encryption password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="password-input"
             />
             
             {file && (
@@ -78,22 +97,18 @@ const FileUpload = () => {
                 <div className="upload-success">
                     <p>File uploaded successfully!</p>
                     <p>IPFS Hash: {ipfsHash}</p>
-                    <a 
-                        href={`https://gateway.pinata.cloud/ipfs/${ipfsHash}`} 
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        View File
-                    </a>
+                    <p className="warning">
+                        Save your password! You'll need it to decrypt the file.
+                    </p>
                 </div>
             )}
 
             <button 
                 onClick={handleUpload}
-                disabled={!file || uploading || !connected}
+                disabled={!file || !password || uploading || !connected}
                 className="upload-button"
             >
-                {uploading ? 'Uploading...' : 'Upload File'}
+                {uploading ? 'Uploading...' : 'Upload & Encrypt File'}
             </button>
         </div>
     );

@@ -1,18 +1,23 @@
-import React, { ReactNode } from 'react';
+// ProtectedRoute.tsx
+import { ReactNode } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useWallet } from '../../../contexts/WalletContext';
 
-interface PrivateRouteProps {
-  children: ReactNode;
+
+interface ProtectedRouteProps {
+    children: ReactNode;
 }
 
-const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
-  const { connected } = useWallet();  
-    if (connected) {
+const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
+    const { connected } = useWallet();
+
+    // If the user is not connected, navigate to the home page.
+    if (!connected) {
+        return <Navigate to="/" replace />;
+    }
+
+    // If connected, render the children components (protected route content).
     return <>{children}</>;
-  } else {
-    return <Navigate to="/" />;
-  }
 };
 
-export default PrivateRoute;
+export default ProtectedRoute;

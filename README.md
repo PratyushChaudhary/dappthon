@@ -16,10 +16,20 @@ This project implements a decentralized file sharing system where users can:
 The system follows these primary workflows:
 
 1. **File Upload Flow**:
+
+
+
 ![File_Upload](https://github.com/user-attachments/assets/bdad31ee-de8e-4c45-9526-ec4d6e5a0c48)
 
+
+
 2. **File Retrieval**:
+
+
+
 ![File_Retrieval](https://github.com/user-attachments/assets/1e557712-68a9-49bd-b2cc-deae094451c9)
+
+
 
 ## Technologies Used
 ### Blockchain & Smart Contracts

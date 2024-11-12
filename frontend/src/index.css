@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .wallet-connect {
   padding: 1rem;
   display: flex;

@@ -10,6 +10,10 @@ function App() {
                 <header>
                     <WalletConnect />
                 </header>
+                <div className=' text-teal-600'>
+                    amanpandey
+                </div>
+                {/* Other components will go here */}
                 <main>
                     <FileUpload />
                     <FileRetrieval />

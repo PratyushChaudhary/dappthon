@@ -12,13 +12,38 @@
   "dependencies": {
     "@aptos-labs/ts-sdk": "^1.32.1",
     "@aptos-labs/wallet-adapter-react": "^3.7.4",
+<<<<<<< HEAD
     "@pinata/sdk": "^2.1.0",
     "@web3-storage/w3up-client": "^16.4.1",
     "axios": "^1.7.7",
+=======
+    "@ramonak/react-progress-bar": "^5.3.0",
+    "@reduxjs/toolkit": "^2.3.0",
+    "@web3-storage/w3up-client": "^16.4.1",
+    "axios": "^1.7.7",
+    "concurrently": "^9.1.0",
+    "cors": "^2.8.5",
+    "crypto-random-string": "^5.0.0",
+    "dropzone": "^6.0.0-beta.2",
+    "googleapis": "^144.0.0",
+>>>>>>> refs/remotes/origin/main
     "ipfs-http-client": "^60.0.1",
     "petra-plugin-wallet-adapter": "^0.4.5",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-dropzone": "^14.3.5",
+    "react-hook-form": "^7.53.2",
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^5.3.0",
+    "react-otp-input": "^3.1.1",
+    "react-rating-stars-component": "^2.2.0",
+    "react-redux": "^9.1.2",
+    "react-router-dom": "^6.28.0",
+    "react-scripts": "^5.0.1",
+    "react-type-animation": "^3.2.0",
+    "swiper": "^11.1.14",
+    "video-react": "^0.16.0",
+    "web-vitals": "^4.2.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
@@ -29,7 +54,8 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.11.0",
-    "typescript": "~5.6.2",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^4.9.5",
     "typescript-eslint": "^8.11.0",
     "vite": "^5.4.10"
   }

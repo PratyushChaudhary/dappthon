@@ -74,8 +74,8 @@ The system follows these primary workflows:
 
 1. Clone the repository
 ```
-git clone https://github.com/yourusername/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/PratyushChaudhary/dappthon.git
+cd dappthon
 ```
 
 2. Install dependencies for both backend and frontend

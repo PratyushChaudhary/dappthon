@@ -14,19 +14,15 @@ const ContactUs: React.FC = () => {
 
   const onSubmit: SubmitHandler<FormInputs> = async (data) => {
     try {
-      // Get values from environment variables
-      const serviceId = 'service_lejlfm7';
-      const templateId ='template_papmi4l';
-      const userId = 'TuqcaXVsrE05G7daz';
+      const serviceId = REACT_APP_EMAILJS_SERVICE_ID;
+      const templateId =REACT_APP_EMAILJS_TEMPLATE_ID;
+      const userId =REACT_APP_EMAILJS_USER_ID;
 
-      // Send the form data using EmailJS
       const result = await emailjs.send(serviceId, templateId, data, userId);
 
-      // Show success toast
       toast.success('Message sent successfully!');
     } catch (error) {
       console.error('Error sending message:', error);
-      // Show error toast
       toast.error('Failed to send the message.');
     }
   };

@@ -1,4 +1,3 @@
-// src/services/encryption.ts
 import CryptoJS from 'crypto-js';
 
 export const encryptFile = async (file: File, password: string): Promise<{ encryptedData: string, fileName: string }> => {

@@ -1,4 +1,3 @@
-// src/contexts/WalletContext.tsx
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { PetraWallet } from "petra-plugin-wallet-adapter";
 import { Types } from 'aptos';
@@ -26,16 +25,13 @@ export function WalletProvider({ children }: { children: ReactNode }) {
             const petra = new PetraWallet();
             setWallet(petra);
 
-            // Check if already connected
             try {
-                // Get current account instead of checking isConnected
                 const acc = await petra.account();
                 if (acc) {
                     setAccount(acc.address);
                     setConnected(true);
                 }
             } catch (error) {
-                // If there's an error, it means we're not connected
                 console.log('Wallet not connected yet');
             }
         };

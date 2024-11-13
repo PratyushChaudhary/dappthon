@@ -2,16 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../../assets/logoDark.png";
 import { IoIosArrowDropdown } from "react-icons/io";
-import { WalletProvider } from '../../contexts/WalletContext'; // Adjust path as necessary
-import WalletConnect from '../wallet/WalletConnect'; // Adjust path as necessary
+import { WalletProvider } from '../../contexts/WalletContext';
+import WalletConnect from '../wallet/WalletConnect'; 
 
-// Creating subLinks for demonstration
 const testSubLinks = [
   { title: "AI-ML", link: "/catalog/ai-ml" },
   { title: "DSA", link: "/catalog/dsa" },
 ];
 
-// Main navigation links
 const NavbarLinks = [
   { title: "Home", path: "/" },
   { title: "About Us", path: "/about" },
@@ -24,7 +22,6 @@ const Navbar = () => (
     <div className="flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700">
       <div className="flex flex-row w-11/12 max-w-maxContent items-center justify-between">
         
-        {/* Logo */}
         <div className='w-[12rem] h-[42px] rounded-md overflow-hidden'>
   <Link to="/">
     <img src={logo} loading="lazy" alt="Logo" className='object-cover w-full h-full' />
@@ -33,7 +30,6 @@ const Navbar = () => (
 
         
 
-        {/* Navigation Links */}
         <nav>
           <ul className="flex flex-row gap-x-6 text-richblack-25">
             {NavbarLinks.map((link, index) => (
@@ -61,7 +57,6 @@ const Navbar = () => (
           </ul>
         </nav>
 
-        {/* Wallet Connect / Cart Icon */}
         <div className="flex mx-2 items-center gap-4">
           <div className="App">
             <header>

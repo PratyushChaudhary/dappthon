@@ -19,7 +19,6 @@ function App() {
                 <Route path="/wallet-connect" element={<WalletConnect />} />
                 <Route path="/about" element={<About />} />
 
-                {/* Protect the file-upload route */}
                 <Route 
                     path="/file-upload"
                     element={

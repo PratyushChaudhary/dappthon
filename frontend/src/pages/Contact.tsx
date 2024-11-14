@@ -14,9 +14,9 @@ const ContactUs: React.FC = () => {
 
   const onSubmit: SubmitHandler<FormInputs> = async (data) => {
     try {
-      const serviceId = REACT_APP_EMAILJS_SERVICE_ID;
-      const templateId =REACT_APP_EMAILJS_TEMPLATE_ID;
-      const userId =REACT_APP_EMAILJS_USER_ID;
+      const serviceId = VITE_EMAILJS_SERVICE_ID;
+      const templateId =VITE_EMAILJS_TEMPLATE_ID;
+      const userId =VITE_EMAILJS_USER_ID;
 
       const result = await emailjs.send(serviceId, templateId, data, userId);
 

@@ -1,7 +1,7 @@
 export const NETWORK = 'devnet';
 export const NODE_URL = 'https://fullnode.devnet.aptoslabs.com';
 
-export const CONTRACT_ADDRESS = '0xa894208f06210148c69e4ede1cc5e6db79d10d56d4ea128ffacbb7ec442d9f50'; // Replace with your contract address
+export const CONTRACT_ADDRESS = '_'; // Replace with your contract address
 export const MODULE_NAME = 'file_sharing';
 
 export const MODULES = {

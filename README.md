@@ -1,4 +1,13 @@
-# Decentralized File Sharing System
+[![License](https://img.shields.io/github/license/PratyushChaudhary/dappthon?style=flat-square)](LICENSE)
+[![Contributors](https://img.shields.io/github/contributors/PratyushChaudhary/dappthon?style=flat-square)](https://github.com/PratyushChaudhary/dappthon/graphs/contributors)
+[![Last Commit](https://img.shields.io/github/last-commit/PratyushChaudhary/dappthon?style=flat-square)](https://github.com/PratyushChaudhary/dappthon/commits/main)
+[![Aptos](https://img.shields.io/badge/Aptos-Powered-blue?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTYuNjM2IDUuNDU0NUwxMiAxMC4wOTA5TDcuMzYzNjQgNS40NTQ1NUw1LjQ1NDU1IDcuMzYzNjRMMTAuMDkwOSAxMkw1LjQ1NDU1IDE2LjYzNjRMNy4zNjM2NCAxOC41NDU1TDEyIDEzLjkwOTFMMTYuNjM2NCAxOC41NDU1TDE4LjU0NTUgMTYuNjM2NEwxMy45MDkxIDEyTDE4LjU0NTUgNy4zNjM2NEwxNi42MzY0IDUuNDU0NTVaIiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==)](https://aptoslabs.com/)
+[![Move Language](https://img.shields.io/badge/Move-Language-red?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTIgMkM2LjQ3NzE1IDIgMiA2LjQ3NzE1IDIgMTJDMiAxNy41MjI4IDYuNDc3MTUgMjIgMTIgMjJDMTcuNTIyOCAyMiAyMiAxNy41MjI4IDIyIDEyQzIyIDYuNDc3MTUgMTcuNTIyOCAyIDEyIDJaTTEyIDIwQzcuNTgxNzIgMjAgNCAxNi40MTgzIDQgMTJDNCAxMC40MjI3IDQuNDQwNDMgOC45NDk3OCA1LjE5NzggNy42OTc0N0w3LjY5NzQ3IDUuMTk3OEM4Ljk0OTc4IDQuNDQwNDMgMTAuNDIyNyA0IDEyIDRDMTYuNDE4MyA0IDIwIDcuNTgxNzIgMjAgMTJDMjAgMTYuNDE4MyAxNi40MTgzIDIwIDEyIDIwWiIgZmlsbD0id2hpdGUiLz48L3N2Zz4=)](https://github.com/move-language/move)
+[![IPFS](https://img.shields.io/badge/IPFS-Enabled-blue.svg?style=flat-square&logo=ipfs)](https://ipfs.io/)
+[![Module](https://img.shields.io/badge/Module-Verified-green.svg?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNOSAxNi4xN0w0LjgzIDEyTDMuNDEgMTMuNDFMOSAxOUwyMSA3TDE5LjU5IDUuNTlMOSAxNi4xN1oiIGZpbGw9IndoaXRlIi8+PC9zdmc+)](https://explorer.aptoslabs.com/txn/0xfd71f336763eab3cec382344c3785a1bbaa5702738101ebb04b05de2b11ca5b1?network=testnet)
+[![Tests](https://img.shields.io/github/workflow/status/PratyushChaudhary/dappthon/Tests?label=tests&style=flat-square)](https://github.com/PratyushChaudhary/dappthon/actions)
+
+# CipherChain - Decentralized File Sharing System
 
 A blockchain-based decentralized file sharing system built on Aptos blockchain that allows users to securely upload, encrypt, and share files with granular access control.
 
@@ -83,8 +92,8 @@ cd dappthon
 # Install Move dependencies
 cd backend
 aptos init
-aptos init —network testnet
-
+```
+```
 # Install frontend dependencies
 cd ../frontend
 npm install
@@ -113,7 +122,7 @@ aptos move publish
 
 5. Start the frontend application
 ```
-cd frontend
+cd ../frontend
 npm run dev
 ```
 

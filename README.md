@@ -89,7 +89,7 @@ cd dappthon
 2. Install dependencies for both backend and frontend
 ```
 # Install Move dependencies
-cd backend
+cd contracts
 aptos init
 ```
 ```
@@ -111,7 +111,7 @@ VITE_CONTRACT_ADDRESS=your_contract_address
 - Update the contract address in src/utils/constants.ts with your deployed contract address
 - Configure Pinata API keys in your environment variables
 - Make sure your Petra wallet is connected to the correct network (testnet/mainnet)
-
+- Make sure to put your Aptos address and network in frontend/src/utils/constants.ts 
 
 4. Deploy smart contracts
 ```

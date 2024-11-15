@@ -60,14 +60,14 @@ A blockchain-based decentralized file sharing system built on Aptos blockchain t
     <td align="center">
       <img src="https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.43.20%E2%80%AFAM.png?raw=true" width="200" alt="Image 9" />
       <br/>
-      Entry Functions on Explorer
+      View Functions on Explorer
     </td>
   </tr>
   <tr>
     <td align="center">
       <img src="https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.43.32%E2%80%AFAM.png?raw=true" width="200" alt="Image 10" />
       <br/>
-      View Functions on Explorer
+      Entry Functions on Explorer
     </td>
     <td align="center">
       <img src="https://github.com/PratyushChaudhary/dappthon/blob/main/captures/image.png?raw=true" width="200" alt="Image 11" />

@@ -11,85 +11,42 @@
 A blockchain-based decentralized file sharing system built on Aptos blockchain that allows users to securely upload, encrypt, and share files with granular access control.
 
 
-<div align="center">
-  <table>
-    <tr>
-      <td>
-        <div class="slider" align="center">
-          <img src="[https://your-image-url-1.jpg](https://github.com/PratyushChaudhary/dappthon/blob/a44c546db6e5309fda99bfba92301d4fb5b77cd4/captures/Screenshot%202024-11-15%20at%2010.39.39%E2%80%AFAM.png?raw=true)" width="400" alt="Image 1" />
-          <img src="(https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.39.50%E2%80%AFAM.png?raw=true)" width="400" alt="Image 2" />
-          <img src="(https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.40.03%E2%80%AFAM.png?raw=true)" width="400" alt="Image 3" />
-          <img src="(https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.40.14%E2%80%AFAM.png?raw=true)" width="400" alt="Image 4" />
-          <img src="(https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.40.49%E2%80%AFAM.png?raw=true)" width="400" alt="Image 5" />
-          <img src="(https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.41.31%E2%80%AFAM.png?raw=true)" width="400" alt="Image 6" />
-          <img src="(https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.42.05%E2%80%AFAM.png?raw=true)" width="400" alt="Image 7" />
-          <img src="(https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.42.53%E2%80%AFAM.png?raw=true)" width="400" alt="Image 8" />
-          <img src="(https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.43.20%E2%80%AFAM.png?raw=true)" width="400" alt="Image 9" />
-          <img src="(https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.43.32%E2%80%AFAM.png?raw=true)" width="400" alt="Image 10" />
-        </div>
-      </td>
-    </tr>
-  </table>
-
-  <!-- Navigation dots -->
-  <p align="center">
-    <a href="#img1">●</a>
-    <a href="#img2">●</a>
-    <a href="#img3">●</a>
-    <a href="#img4">●</a>
-    <a href="#img5">●</a>
-    <a href="#img6">●</a>
-    <a href="#img7">●</a>
-    <a href="#img8">●</a>
-    <a href="#img9">●</a>
-    <a href="#img10">●</a>
-  </p>
-
-  <style>
-    /* Slider container */
-    .slider {
-      width: 400px;
-      height: 300px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      display: flex;
-      scroll-behavior: smooth;
-      border-radius: 8px;
-      gap: 0;
-    }
-
-    /* Hide scrollbar */
-    .slider::-webkit-scrollbar {
-      display: none;
-    }
-    
-    .slider {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    /* Images */
-    .slider img {
-      scroll-snap-align: start;
-      flex: 0 0 auto;
-      object-fit: cover;
-      width: 400px;
-      height: 300px;
-    }
-
-    /* Navigation dots */
-    p a {
-      text-decoration: none;
-      color: #666;
-      padding: 6px;
-      font-size: 14px;
-    }
-
-    p a:hover {
-      color: #000;
-    }
-  </style>
-</div>
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.39.39%E2%80%AFAM.png?raw=true" width="200" alt="Image 1" />
+      <br/>
+      Screenshot 1
+    </td>
+    <td align="center">
+      <img src="https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.39.50%E2%80%AFAM.png?raw=true" width="200" alt="Image 2" />
+      <br/>
+      Screenshot 2
+    </td>
+    <td align="center">
+      <img src="https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.40.03%E2%80%AFAM.png?raw=true" width="200" alt="Image 3" />
+      <br/>
+      Screenshot 3
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.40.14%E2%80%AFAM.png?raw=true" width="200" alt="Image 4" />
+      <br/>
+      Screenshot 4
+    </td>
+    <td align="center">
+      <img src="https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.40.49%E2%80%AFAM.png?raw=true" width="200" alt="Image 5" />
+      <br/>
+      Screenshot 5
+    </td>
+    <td align="center">
+      <img src="https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.41.31%E2%80%AFAM.png?raw=true" width="200" alt="Image 6" />
+      <br/>
+      Screenshot 6
+    </td>
+  </tr>
+</table>
 
 
 ## Project Overview

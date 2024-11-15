@@ -110,11 +110,10 @@ VITE_CONTRACT_ADDRESS=YOUR__CONTRACT_ADDRESS
 
 ### Configuration
 
-- Update addresses under Move.toml with your deployed contract address
-- Update the contract address in src/utils/constants.ts with your deployed contract address
-- Configure Pinata API keys in your environment variables
+- Update addresses under Move.toml with your deployed contract address (refer to .aptos/config.yaml).
+- Update the NETWORK in frontend/src/utils/constants.ts to your APTOS network (currrently set to testnet).
+- Configure your environment variables
 - Make sure your Petra wallet is connected to the correct network (testnet/mainnet)
-- Make sure to put your Aptos address and network in frontend/src/utils/constants.ts 
 
 4. Deploy smart contracts
 ```

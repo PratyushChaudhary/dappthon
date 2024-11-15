@@ -140,10 +140,10 @@ The system follows these primary workflows:
 - 🎯 Granular access management
 - 📱 Responsive web interface
 
-## Transactions 
+## Transactions   
 
--New users will be asked to register 
--When you upload a file, you'll get a signature request to safely store metadata about file on-chain 
+-New users will be asked to register     
+-When you upload a file, you'll get a signature request to safely store metadata about file on-chain      
 
 ## Getting Started
 - Node.js (v14 or later)

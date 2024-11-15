@@ -4,8 +4,8 @@ version = "1.0.0"
 authors = []
 
 [addresses]
-default = "0x7b2b9d9ae8adcf023e3c018f00e9c213c7d60af5d9b35d28eacd642a80629a1d"
-file_sharing = "0x7b2b9d9ae8adcf023e3c018f00e9c213c7d60af5d9b35d28eacd642a80629a1d"
+default = "_"
+file_sharing = "_"
 
 [dev-addresses]
 

@@ -149,7 +149,7 @@ git clone https://github.com/PratyushChaudhary/dappthon.git
 cd dappthon
 ```
 
-2. Install dependencies for both backend and frontend
+2. Install dependencies for both contracts and frontend
 ```
 # Install Move dependencies
 cd contracts
@@ -180,7 +180,7 @@ VITE_CONTRACT_ADDRESS=YOUR__CONTRACT_ADDRESS
 
 4. Deploy smart contracts
 ```
-cd backend
+cd contracts
 aptos move publish
 ```
 
@@ -192,7 +192,7 @@ npm run dev
 
 ### Smart Contract Structure
 ```
-backend/
+contracts/
 ├── sources/
 │   ├── user.move         (User management)
 │   ├── file_upload.move  (File metadata storage)

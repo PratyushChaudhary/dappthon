@@ -1,4 +1,3 @@
-// src/services/contract.ts
 import { Types, AptosClient } from 'aptos';
 import { PetraWallet } from 'petra-plugin-wallet-adapter';
 
@@ -7,10 +6,10 @@ const NODE_URL = 'https://fullnode.testnet.aptoslabs.com/v1';
 
 const client = new AptosClient(NODE_URL);
 
-// Check if a user is registered
+
 export const isUserRegistered = async (wallet: PetraWallet, userAddress: string): Promise<boolean> => {
     try {
-        // Use view function instead of transaction
+
         const payload = {
             function: `${CONTRACT_ADDRESS}::user::is_user_registered`,
             type_arguments: [],
@@ -25,7 +24,7 @@ export const isUserRegistered = async (wallet: PetraWallet, userAddress: string)
     }
 };
 
-// Register a new user
+
 export const registerUser = async (wallet: PetraWallet) => {
     if (!wallet) throw new Error('Wallet not connected');
 
@@ -41,7 +40,7 @@ export const registerUser = async (wallet: PetraWallet) => {
         const response = await wallet.signAndSubmitTransaction(payload);
         console.log('Registration transaction submitted:', response.hash);
         
-        // Wait for transaction confirmation
+
         await client.waitForTransaction(response.hash);
         console.log('Registration transaction confirmed');
         
@@ -52,7 +51,7 @@ export const registerUser = async (wallet: PetraWallet) => {
     }
 };
 
-// Upload file metadata
+
 export const uploadFileMetadata = async (
     wallet: PetraWallet,
     ipfsHash: string,
@@ -74,7 +73,7 @@ export const uploadFileMetadata = async (
         const response = await wallet.signAndSubmitTransaction(payload);
         console.log('Upload transaction submitted:', response.hash);
         
-        // Wait for transaction confirmation
+        
         await client.waitForTransaction(response.hash);
         console.log('Upload transaction confirmed');
         

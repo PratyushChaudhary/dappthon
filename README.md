@@ -16,63 +16,63 @@ A blockchain-based decentralized file sharing system built on Aptos blockchain t
     <td align="center">
       <img src="https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.39.39%E2%80%AFAM.png?raw=true" width="200" alt="Image 1" />
       <br/>
-      Screenshot 1
+      Home Page
     </td>
     <td align="center">
       <img src="https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.39.50%E2%80%AFAM.png?raw=true" width="200" alt="Image 2" />
       <br/>
-      Screenshot 2
+      About Us Page
     </td>
     <td align="center">
       <img src="https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.40.03%E2%80%AFAM.png?raw=true" width="200" alt="Image 3" />
       <br/>
-      Screenshot 3
+      Contact Us Page
     </td>
   </tr>
   <tr>
     <td align="center">
       <img src="https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.40.14%E2%80%AFAM.png?raw=true" width="200" alt="Image 4" />
       <br/>
-      Screenshot 4
+      File Retrieval Page
     </td>
     <td align="center">
       <img src="https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.40.49%E2%80%AFAM.png?raw=true" width="200" alt="Image 5" />
       <br/>
-      Screenshot 5
+      Petra Wallet Connection
     </td>
     <td align="center">
       <img src="https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.41.31%E2%80%AFAM.png?raw=true" width="200" alt="Image 6" />
       <br/>
-      Screenshot 6
+      Request to store metadata on chain
     </td>
   </tr>
   <tr>
     <td align="center">
       <img src="https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.42.05%E2%80%AFAM.png?raw=true" width="200" alt="Image 7" />
       <br/>
-      Screenshot 7
+      Retrieving File
     </td>
     <td align="center">
       <img src="https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.42.53%E2%80%AFAM.png?raw=true" width="200" alt="Image 8" />
       <br/>
-      Screenshot 8
+      Transactions on Explorer
     </td>
     <td align="center">
       <img src="https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.43.20%E2%80%AFAM.png?raw=true" width="200" alt="Image 9" />
       <br/>
-      Screenshot 9
+      Entry Functions on Explorer
     </td>
   </tr>
   <tr>
     <td align="center">
       <img src="https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.43.32%E2%80%AFAM.png?raw=true" width="200" alt="Image 10" />
       <br/>
-      Screenshot 10
+      View Functions on Explorer
     </td>
     <td align="center">
       <img src="https://github.com/PratyushChaudhary/dappthon/blob/main/captures/image.png?raw=true" width="200" alt="Image 11" />
       <br/>
-      Screenshot 11
+      Request to register user
     </td>
   </tr>
 </table>

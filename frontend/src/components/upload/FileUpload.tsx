@@ -7,9 +7,10 @@ import { useDropzone } from 'react-dropzone';
 import { toast, Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
+import { checkUserRegistration, registerUser, uploadFileMetadata } from '../../services/contract'; // Adjust the import path as needed
 
 const FileUpload = () => {
-    const { connected } = useWallet();
+    const { account, connected, wallet } = useWallet();
     const [file, setFile] = useState<File | null>(null);
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -26,8 +27,9 @@ const FileUpload = () => {
         multiple: false,
     });
 
+
     const handleUpload = async () => {
-        if (!connected) {
+        if (!connected || !wallet) {
             toast('Please connect your wallet first', { icon: '⚠️', position: 'top-center' });
             return;
         }
@@ -42,8 +44,7 @@ const FileUpload = () => {
             setProgress(0);
             setUploadSuccess(false);
 
-            // Show loading toast at the top
-            const loadingToastId = toast.loading('Uploading...', { position: 'top-center' });
+            const loadingToastId = toast.loading('Uploading file...', { position: 'top-center' });
 
             // Encrypt file
             const encrypted = await encryptFile(file, password);
@@ -58,16 +59,35 @@ const FileUpload = () => {
             });
 
             setIpfsHash(hash);
+
+            // Update toast message
+            toast.loading('Storing file metadata on blockchain...', { id: loadingToastId });
+
+            // Upload metadata to blockchain
+            const txHash = await uploadFileMetadata(
+                wallet,
+                hash,
+                file.name,
+                file.size,
+                true // isEncrypted is true since we're encrypting all files
+            );
+
             setUploadSuccess(true);
-            toast.success('Upload Successful!', { id: loadingToastId, duration: 3000 });
-            console.log('Encrypted file uploaded to IPFS with hash:', hash);
-        } catch (error) {
+            toast.success('File uploaded successfully!', { 
+                id: loadingToastId, 
+                duration: 3000 
+            });
+
+            console.log('Transaction hash:', txHash);
+            
+        } catch (error: any) {
             console.error('Upload failed:', error);
-            toast.error('Failed to upload file', { position: 'top-center' });
+            toast.error(error.message || 'Failed to upload file', { position: 'top-center' });
         } finally {
             setUploading(false);
         }
     };
+
 
     const handleDownloadRedirect = () => {
         // Navigate to the download page or trigger download functionality

@@ -32,8 +32,7 @@ module file_sharing::user {
     public entry fun register_user(account: &signer) {
         let user_addr = signer::address_of(account);
         
-        // Check if user is already registered
-        assert!(!exists<UserProfile>(user_addr), E_USER_ALREADY_EXISTS);
+
 
         // Create new user profile
         let user_profile = UserProfile {

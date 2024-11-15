@@ -1,7 +1,9 @@
-export const NETWORK = 'devnet';
+export const NETWORK = 'testnet';
 export const NODE_URL = 'https://fullnode.devnet.aptoslabs.com';
 
-export const CONTRACT_ADDRESS = '_'; // Replace with your contract address
+
+
+export const CONTRACT_ADDRESS = import.meta.env.VITE_CONTRACT_ADDRESS;
 export const MODULE_NAME = 'file_sharing';
 
 export const MODULES = {

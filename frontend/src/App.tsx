@@ -8,6 +8,7 @@ import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 import About from './pages/About';
 import ContactUs from './pages/Contact';
+
 function App() {
   return (
     

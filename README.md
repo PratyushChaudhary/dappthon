@@ -17,15 +17,15 @@ A blockchain-based decentralized file sharing system built on Aptos blockchain t
       <td>
         <div class="slider" align="center">
           <img src="[https://your-image-url-1.jpg](https://github.com/PratyushChaudhary/dappthon/blob/a44c546db6e5309fda99bfba92301d4fb5b77cd4/captures/Screenshot%202024-11-15%20at%2010.39.39%E2%80%AFAM.png?raw=true)" width="400" alt="Image 1" />
-          <img src="[https://your-image-url-2.jpg](https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.39.50%E2%80%AFAM.png?raw=true)" width="400" alt="Image 2" />
-          <img src="[https://your-image-url-3.jpg](https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.40.03%E2%80%AFAM.png?raw=true)" width="400" alt="Image 3" />
-          <img src="[https://your-image-url-4.jpg](https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.40.14%E2%80%AFAM.png?raw=true)" width="400" alt="Image 4" />
-          <img src="[https://your-image-url-4.jpg](https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.40.49%E2%80%AFAM.png?raw=true)" width="400" alt="Image 5" />
-          <img src="[https://your-image-url-4.jpg](https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.41.31%E2%80%AFAM.png?raw=true)" width="400" alt="Image 6" />
-          <img src="[https://your-image-url-4.jpg](https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.42.05%E2%80%AFAM.png?raw=true)" width="400" alt="Image 7" />
-          <img src="[https://your-image-url-4.jpg](https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.42.53%E2%80%AFAM.png?raw=true)" width="400" alt="Image 8" />
-          <img src="[https://your-image-url-4.jpg](https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.43.20%E2%80%AFAM.png?raw=true)" width="400" alt="Image 9" />
-          <img src="[https://your-image-url-4.jpg](https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.43.32%E2%80%AFAM.png?raw=true)" width="400" alt="Image 10" />
+          <img src="(https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.39.50%E2%80%AFAM.png?raw=true)" width="400" alt="Image 2" />
+          <img src="(https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.40.03%E2%80%AFAM.png?raw=true)" width="400" alt="Image 3" />
+          <img src="(https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.40.14%E2%80%AFAM.png?raw=true)" width="400" alt="Image 4" />
+          <img src="(https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.40.49%E2%80%AFAM.png?raw=true)" width="400" alt="Image 5" />
+          <img src="(https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.41.31%E2%80%AFAM.png?raw=true)" width="400" alt="Image 6" />
+          <img src="(https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.42.05%E2%80%AFAM.png?raw=true)" width="400" alt="Image 7" />
+          <img src="(https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.42.53%E2%80%AFAM.png?raw=true)" width="400" alt="Image 8" />
+          <img src="(https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.43.20%E2%80%AFAM.png?raw=true)" width="400" alt="Image 9" />
+          <img src="(https://github.com/PratyushChaudhary/dappthon/blob/main/captures/Screenshot%202024-11-15%20at%2010.43.32%E2%80%AFAM.png?raw=true)" width="400" alt="Image 10" />
         </div>
       </td>
     </tr>
